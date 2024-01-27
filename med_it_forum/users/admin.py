@@ -8,7 +8,7 @@ class UserAdmin(UserAdmin):
     list_display = ('username', 'email', 'phone', 'first_name', 'last_name', 'is_staff')
     fieldsets = (
         (_('Extra Fields'), {'fields': ('username', 'password')}),
-        (_('Персональная информация'), {'fields': ('first_name', 'last_name', 'middle_name', 'email')}),
+        (_('Персональная информация'), {'fields': ('first_name', 'last_name', 'middle_name', 'email', 'github')}),
         (_('Разрешения'), {
             'fields': ('is_active', 'is_staff', 'is_superuser', 'user_permissions'),
         }),
@@ -18,6 +18,7 @@ class UserAdmin(UserAdmin):
         (_('Важные даты'), {'fields': ('last_login', 'date_joined')}),
         (_('Дополнительная информация'), {'fields': ('phone', 'avatar')}),
     )
+    filter_horizontal = ('skill',)
 
 
 admin.site.register(User, UserAdmin)

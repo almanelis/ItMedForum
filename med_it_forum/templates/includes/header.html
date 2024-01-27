@@ -33,7 +33,8 @@
           <!-- Это блок ссылок для авторизованного пользователя -->
           {% if user.is_authenticated %}
             <li class="nav-item">              
-              <a class="nav-link disabled" >
+              <a class="nav-link {% if view_name == 'users:profile' %}active{% endif %}" 
+              href="{% url "users:profile" %}">
                 Профиль
               </a> 
             </li>
