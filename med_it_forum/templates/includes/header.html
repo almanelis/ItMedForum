@@ -1,0 +1,68 @@
+{% load static %}
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'feed:index' %}">MedItForum</a>
+      <div 
+        class="navbar-toggler" 
+        type="button" 
+        data-toggle="collapse" 
+        data-target="#navbarNav" 
+        aria-controls="navbarNav" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+        >
+        <span class="navbar-toggler-icon"></span>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        {% with request.resolver_match.view_name as view_name %}            
+        <ul class="nav nav-pills">
+          <li class="nav-item me-2">              
+            <a
+              class="nav-link {% if view_name == 'feed:index' %} active {% endif %}" 
+              href="{% url 'feed:index' %}"
+              >
+              Главная 
+            </a> 
+          </li>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Поиск по статьям" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Поиск</button>
+          </form>
+        </li>
+          <!-- Это блок ссылок для авторизованного пользователя -->
+          {% if user.is_authenticated %}
+            <li class="nav-item">              
+              <a class="nav-link disabled" >
+                Профиль
+              </a> 
+            </li>
+            <span class="navbar-text me-2">Пользователь: <b>{{ user.username }}</b></span>
+            <li class="nav-item">
+              <a class="nav-link{% if view_name == 'password_change' %} active {% endif %}"
+                href="{% url 'password_change' %}">Изменить пароль</a>
+            </li>
+            <li class="nav-item">
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                 <button type="submit" class="btn btn-success me-2">Выйти</button>
+             </form>
+            </li>
+          <!-- Конец блока ссылок для авторизованного пользователя -->
+
+          <!-- А здесь блок ссылок для неавторизованного пользователя -->
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link{% if view_name == 'login' %} active {% endif %}" href="{% url 'login' %}">Войти</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link{% if view_name == 'registration' %} active {% endif %}" href="{% url 'registration' %}">Регистрация</a>
+            </li>       
+          {% endif %}
+          <!-- Конец блока ссылок для неавторизованного пользователя -->
+        </ul>
+        {% endwith %}
+      </div>       
+    </div>
+  </nav>
+</header>
