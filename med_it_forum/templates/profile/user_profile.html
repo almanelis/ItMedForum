@@ -1,20 +1,26 @@
 {% extends "base.html" %}
 {% block title %}Профиль{% endblock title %}
 {% block content %}
-    <h1>Профиль пользователя {{ user.username }}</h>
-    <hr>
-    <img src="{{ user.avatar.url }}" alt="avatar" height=100 width=100>
-    <h2>Почта -- {{ user.email }}</h2>
-    <h2>Фамилия -- {{ user.last_name }}</h2>
-    <h2>Имя -- {{ user.first_name }}</h2>
-    <h2>Отчество -- {{ user.middle_name }}</h2>
-    <h2>Гитхаб -- {{ user.github }}</h2>
-    <h2>Умения:</h2>
-    <ul>
-    {% for skill in user.skill.all %}
-        <li>{{ skill.name }}</li>
-    {% endfor %}
+<h1 class="text-center">Профиль пользователя {{ user.username }}</h1>
+<div class="card col-4 position-absolute mt-3 mb-3 start-50 translate-middle-x">
+    <img src="{{ user.avatar.url }}" alt="avatar" class="card-img-top">
+    <div class="card-body">
+        <h4 class="card-title">{{ user.last_name }} {{ user.first_name }} {{ user.middle_name }}</h4>
+        <p class="card-text fs-5"><b>Обо мне:</b> {{ user.bio }}</p>
+    </div>
+    <ul class="list-group list-group-flush fs-5">
+        <li class="list-group-item"><b>Почта:</b> {{ user.email }}</li>
+        <li class="list-group-item"><b>Гитхаб:</b> {{ user.github }}</li>
+        <li class="list-group-item">
+            <b>Умения:</b> 
+            {% for skill in user.skill.all %}
+                <button type="button" class="btn btn-outline-primary" disabled>{{ skill.name }}</button>
+            {% endfor %}
+        </li>
     </ul>
-    <h4>Пользователь был зарегестрирован {{ user.date_joined }}</h4>
+    <div class="card-footer text-body-secondary fs-6">
+        Пользователь был зарегестрирован {{ user.date_joined }}
+    </div>
+</div>
 {% endblock content %}
 
