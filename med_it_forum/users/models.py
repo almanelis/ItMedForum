@@ -6,6 +6,10 @@ class Skill(models.Model):
     """Skill model"""
     name = models.CharField('Умения', max_length=100)
 
+    class Meta:
+        verbose_name = ('Умение')
+        verbose_name_plural = ('Умения')
+
     def __str__(self):
         return self.name
 

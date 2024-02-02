@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %}Создание поста{% endblock title %}
+
+{% block content %}
+    <h1>Создать пост</h1>
+    <div class="card col-6">
+        <div class="card-body">
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% bootstrap_button button_type="submit" content="Отправить" %}
+          </form>
+        </div>
+    </div>
+{% endblock content %}

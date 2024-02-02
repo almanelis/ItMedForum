@@ -2,7 +2,7 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
     <div class="container">
-      <a class="navbar-brand" href="{% url 'feed:index' %}">MedItForum</a>
+      <a class="navbar-brand" href="{% url 'feed:list' %}">MedItForum</a>
       <div 
         class="navbar-toggler" 
         type="button" 
@@ -19,19 +19,24 @@
         <ul class="nav nav-pills">
           <li class="nav-item me-2">              
             <a
-              class="nav-link {% if view_name == 'feed:index' %} active {% endif %}" 
-              href="{% url 'feed:index' %}"
+              class="nav-link {% if view_name == 'feed:list' %} active {% endif %}" 
+              href="{% url 'feed:list' %}"
               >
               Главная 
             </a> 
           </li>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Поиск по статьям" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Поиск</button>
           </form>
         </li>
           <!-- Это блок ссылок для авторизованного пользователя -->
           {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link {% if view_name == 'feed:create' %}active{% endif %}"
+              href="{% url "feed:create" %}">
+              Написать статью
+              </a>
+            </li>
             <li class="nav-item">              
               <a class="nav-link {% if view_name == 'users:profile' %}active{% endif %}" 
               href="{% url "users:profile" %}">

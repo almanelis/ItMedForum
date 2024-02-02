@@ -3,6 +3,8 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import Skill, User
 
+admin.site.empty_value_display = 'Не задано'
+
 """Вывод информации о пользователе в админке"""
 class UserAdmin(UserAdmin):
     list_display = ('username', 'email', 'phone', 'first_name', 'last_name', 'is_staff')
