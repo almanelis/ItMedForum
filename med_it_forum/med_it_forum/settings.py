@@ -88,9 +88,9 @@ EMAIL_FILE_PATH = BASE_DIR / 'sent_emails'
 
 AUTH_USER_MODEL = 'users.User'
 
-LOGOUT_REDIRECT_URL = 'feed:index'
+LOGOUT_REDIRECT_URL = 'feed:list'
 # После аутентификации пользователь направляется на главную страницу
-LOGIN_REDIRECT_URL = 'feed:index'
+LOGIN_REDIRECT_URL = 'feed:list'
 LOGIN_URL = 'login' 
 
 # Password validation
