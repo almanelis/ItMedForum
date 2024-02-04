@@ -6,5 +6,6 @@ app_name = 'feed'
 
 urlpatterns = [
     path('', views.PostListView.as_view(), name='list'),
-    path('create/', views.PostCreateView.as_view(), name='create')
+    path('create/', views.PostCreateView.as_view(), name='create'),
+    path('detail/<int:pk>/', views.PostDetailView.as_view(), name='detail'),
 ]

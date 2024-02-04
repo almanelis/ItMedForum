@@ -2,7 +2,6 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
     <div class="container">
-      <a class="navbar-brand" href="{% url 'feed:list' %}">MedItForum</a>
       <div 
         class="navbar-toggler" 
         type="button" 
@@ -12,47 +11,40 @@
         aria-expanded="false" 
         aria-label="Toggle navigation"
         >
-        <span class="navbar-toggler-icon"></span>
       </div>
       <div class="collapse navbar-collapse" id="navbarNav">
         {% with request.resolver_match.view_name as view_name %}            
-        <ul class="nav nav-pills">
-          <li class="nav-item me-2">              
-            <a
-              class="nav-link {% if view_name == 'feed:list' %} active {% endif %}" 
-              href="{% url 'feed:list' %}"
-              >
-              Главная 
-            </a> 
-          </li>
+        <ul class="nav nav-pills align-items-center ">
+        <li>
+          <a class="navbar-brand" href="{% url 'feed:list' %}">MedItForum</a>
+        </li>
+        <li>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Поиск по статьям" aria-label="Search">
           </form>
+          <li class="nav-item">
+            <a class="nav-link {% if view_name == 'feed:create' %}active{% endif %}"
+            href="{% url "feed:create" %}">
+            Написать статью
+            </a>
         </li>
           <!-- Это блок ссылок для авторизованного пользователя -->
           {% if user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link {% if view_name == 'feed:create' %}active{% endif %}"
-              href="{% url "feed:create" %}">
-              Написать статью
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="{{ user.avatar.url }}" class="rounded-circle" style="width:35px; height:35px">
               </a>
-            </li>
-            <li class="nav-item">              
-              <a class="nav-link {% if view_name == 'users:profile' %}active{% endif %}" 
-              href="{% url "users:profile" %}">
-                Профиль
-              </a> 
-            </li>
-            <span class="navbar-text me-2">Пользователь: <b>{{ user.username }}</b></span>
-            <li class="nav-item">
-              <a class="nav-link{% if view_name == 'password_change' %} active {% endif %}"
-                href="{% url 'password_change' %}">Изменить пароль</a>
-            </li>
-            <li class="nav-item">
-              <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                 <button type="submit" class="btn btn-success me-2">Выйти</button>
-             </form>
+              <ul class="dropdown-menu">
+                <span class="dropdown-item navbar-text me-2">Пользователь: <b>{{ user.username }}</b></span>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item flex-end" href="{% url "users:profile" %}">Профиль</a></li>
+                <li>              
+                  <form action="{% url 'logout' %}" method="post">
+                  {% csrf_token %}
+                   <button type="submit" class="dropdown-item">Выйти</button>
+                  </form>
+                </li>
+              </ul>
             </li>
           <!-- Конец блока ссылок для авторизованного пользователя -->
 

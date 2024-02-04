@@ -1,16 +1,19 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DetailView
 
 from .forms import PostForm
 from .models import Post
 
 
 class PostListView(ListView):
+    """Функция вывода списка постов в ленте"""
     model = Post
     context_object_name = 'posts'
     template_name = 'feed/post_list.html'
+    # Фильтрация от нового к старому
+    ordering = ['-created_at',]
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
@@ -23,3 +26,8 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name='feed/post_detail.html'
