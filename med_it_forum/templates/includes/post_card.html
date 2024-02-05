@@ -1,7 +1,12 @@
+{% load static %}
 <div class="card mb-3" style="max-width: 800px">
     <div class="row g-0">
       <div class="col-4">
-        <img src="{{ post.picture.url }}" class="img-fluid rounded-start" style="height: 100% " alt="picture">
+        <img src="
+        {% if post.picture %}{{ post.picture.url }}
+        {% else %}{% static 'img/no-img.png' %}
+        {% endif %}" 
+        class="img-fluid rounded-start" style="height: 100% " alt="picture">
       </div>
       <div class="col-8">
         <div class="card-header">

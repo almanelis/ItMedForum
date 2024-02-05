@@ -1,5 +1,9 @@
+{% load static %}
 <div class="card col-7">
-    <img src="{{ post.picture.url }}" alt="post_image" class="card-img-top img-fluid" height="50px">
+    <img src="
+    {% if post.picture %}{{ post.picture.url }}
+    {% else %}{% static 'img/no-img.png' %}
+    {% endif %}" alt="post_image" class="card-img-top img-fluid" height="50px">
     <div class="card-header">
         <h5 class="card-text">Автор: {{ post.author }} ID: {{ post.id }}</h5>
     </div>

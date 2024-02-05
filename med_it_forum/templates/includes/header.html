@@ -32,7 +32,11 @@
           {% if user.is_authenticated %}
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="{{ user.avatar.url }}" class="rounded-circle" style="width:35px; height:35px">
+                <img src="
+                {% if user.avatar %}{{ user.avatar.url }}
+                {% else %}{% static 'img/user-solid.svg' %}" 
+                class="rounded-circle" style="width:35px; height:35px">
+                {% endif %}
               </a>
               <ul class="dropdown-menu">
                 <span class="dropdown-item navbar-text me-2">Пользователь: <b>{{ user.username }}</b></span>

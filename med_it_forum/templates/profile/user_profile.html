@@ -1,11 +1,14 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Профиль{% endblock title %}
 {% block content %}
 <h2>Профиль пользователя {{ user.username }}</h2>
 <div class="row">
     <div class="col-4">
         <div class="card">
-            <img src="{{ user.avatar.url }}" alt="avatar" class="card-img-top">
+            <img src="{% if user.avatar %}{{ user.avatar.url }}
+            {% else %}{% static 'img/user-solid.svg' %}
+            {% endif %}" alt="avatar" class="card-img-top">
             <div class="card-body">
                 <h4 class="card-title">{{ user.last_name }} {{ user.first_name }} {{ user.middle_name }}</h4>
                 <p class="card-text fs-5"><b>Обо мне:</b> {{ user.bio }}</p>

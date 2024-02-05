@@ -19,7 +19,7 @@ urlpatterns = [
     CreateView.as_view(
         template_name='registration/registration_form.html',
         form_class=CustomUserCreationForm,
-        success_url=reverse_lazy('feed:index'),
+        success_url=reverse_lazy('feed:list'),
     ),
     name='registration',
     ),
