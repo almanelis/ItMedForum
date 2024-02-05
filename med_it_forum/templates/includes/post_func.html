@@ -1,0 +1,11 @@
+<div class="btn-group">
+    <button type="button" class="btn btn-primary">Действие</button>
+    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+      <span class="visually-hidden">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="{% url "feed:update" post.id %}">Редактировать</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item link-danger" href="{% url "feed:delete" post.id %}">Удалить</a></li>
+    </ul>
+  </div>

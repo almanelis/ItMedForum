@@ -3,5 +3,13 @@
 {% block title %}Пост "{{ post.title }}"{% endblock title %}
 
 {% block content %}
-    {% include "includes/post_card_full.html" %}
+<div class="row">
+    <div class="col-7">
+        {% include "includes/post_card_full.html" %}
+    </div>
+    {% if post.author == user %}
+    <div class="col-3">
+        {% include "includes/post_func.html" %}
+    </div>
+    {% endif %}
 {% endblock content %}

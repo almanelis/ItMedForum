@@ -11,6 +11,9 @@
       <div class="col-8">
         <div class="card-header">
           <p class="card-text">Опубликовано: {{ post.author }}, ID: {{ post.id }}</p>
+          {% if post.author == user %}
+            {% include "includes/post_func.html" %}
+          {% endif %}
         </div>
         <div class="card-body">
           <h5 class="card-title" href="{% url 'feed:detail' post.id %}">

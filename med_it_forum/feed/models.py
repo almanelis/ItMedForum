@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.urls import reverse
+from django.utils import timezone
 
 from users.models import Skill
 
@@ -20,6 +22,9 @@ class Post(models.Model):
         verbose_name = 'Пост'
         verbose_name_plural = 'Посты'
 
+    def get_absolute_url(self):
+        return reverse("feed:detail", kwargs={"pk": self.pk})
+    
     def __str__(self) -> str:
         return self.title
     

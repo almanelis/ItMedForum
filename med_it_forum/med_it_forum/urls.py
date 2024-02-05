@@ -8,9 +8,8 @@ from django.urls import include, path, reverse_lazy
 from users.forms import CustomUserCreationForm
 
 urlpatterns = [
-    # Основне приложения
-    path('', include('feed.urls')), # лента
-
+    # Лента с статьями
+    path('', include('feed.urls')),
     # Приложение для работы с пользователями
     path('auth/', include('django.contrib.auth.urls')),
     # Регистрация пользователя
@@ -24,7 +23,7 @@ urlpatterns = [
     name='registration',
     ),
     # Профиль пользователя
-    path('users/', include('users.urls')),
+    path('users/', include('users.urls'), name='users'),
     # Приложение админки
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 

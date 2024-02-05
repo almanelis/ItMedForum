@@ -34,9 +34,10 @@
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="
                 {% if user.avatar %}{{ user.avatar.url }}
-                {% else %}{% static 'img/user-solid.svg' %}" 
+                {% else %}{% static 'img/user-solid.svg' %}
+                {% endif %}"
                 class="rounded-circle" style="width:35px; height:35px">
-                {% endif %}
+                
               </a>
               <ul class="dropdown-menu">
                 <span class="dropdown-item navbar-text me-2">Пользователь: <b>{{ user.username }}</b></span>
