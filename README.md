@@ -27,7 +27,7 @@ MedItForum
   python med_it_forum/manage.py migrate
   ```
   ```
-  python med_it_forum/manage.py makesuperuser
+  python med_it_forum/manage.py createsuperuser
   ```
 ### Работа с админкой
   Так как база данных пустая, то в админке вы легко можете добавить необходимую инфу
