@@ -1,2 +1,2 @@
-*.css text eol=crlf
-*.html text eol=crlf
+*.css linguist-language=Python
+*.html linguist-language=Python
