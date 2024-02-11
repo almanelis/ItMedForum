@@ -63,7 +63,7 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
 
     # Ограничиваем доступ на удаление поста для всех, кроме автора
     def dispatch(self, request, *args, **kwargs):
-        get_object_or_404(Post, pk=kwargs['pk'], author=request.user)
+        get_object_or_404(Post, pk=kwargs['pk'], user=request.author)
         return super().dispatch(request, *args, **kwargs)
 
     # Функция удаления поста

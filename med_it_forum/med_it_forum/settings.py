@@ -25,9 +25,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # css фреймворки
+    'tailwind',
+    'tailwind_css',
     'django_bootstrap5',
     # дебагер 
     "debug_toolbar",
+    # автоматическое обновление страницы при изменении в шаблоне
+    'django_browser_reload',
     # приложения
     'users.apps.UsersConfig',
     'feed.apps.FeedConfig',
@@ -43,6 +48,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # Дебагер
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    # Обновление страниц
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'med_it_forum.urls'
@@ -64,6 +71,11 @@ TEMPLATES = [
         },
     },
 ]
+
+# Настройки tailwind
+TAILWIND_APP_NAME = 'tailwind_css'
+from shutil import which
+NPM_BIN_PATH = which("npm")
 
 WSGI_APPLICATION = 'med_it_forum.wsgi.application'
 
@@ -136,7 +148,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 INTERNAL_IPS = [
     '127.0.0.1',
 ]

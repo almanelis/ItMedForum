@@ -21,4 +21,4 @@ class User(AbstractUser):
     avatar = models.ImageField('Аватар', blank=True, null=True, upload_to="images/profile/")
     bio = models.TextField('Обо мне', blank=True, null=True)
     github = models.CharField('GitHub', max_length=500, blank=True, null=True)
-    skill = models.ManyToManyField(Skill, related_name='users', blank=True)
+    skill = models.ManyToManyField(Skill, related_name='users', blank=True, verbose_name="Теги")

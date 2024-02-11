@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block title %}Профиль пользователя {{ current_user.username }}{% endblock title %}
+
+{% block content %}
+<h1>Профиль пользователя {{ current_user.username }}</h1>
+{% with user=current_user %}{% include "profile/user_profile.html" %}{% endwith %}
+{% endblock content %}

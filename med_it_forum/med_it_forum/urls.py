@@ -1,29 +1,19 @@
 from django.conf import settings
-from django.views.generic.edit import CreateView
-
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import include, path, reverse_lazy
-
-from users.forms import CustomUserCreationForm
+from django.urls import include, path
 
 urlpatterns = [
     # Лента с статьями
     path('', include('feed.urls')),
     # Приложение для работы с пользователями
     path('auth/', include('django.contrib.auth.urls')),
-    # Регистрация пользователя
-    path(
-    'auth/registration/', 
-    CreateView.as_view(
-        template_name='registration/registration_form.html',
-        form_class=CustomUserCreationForm,
-        success_url=reverse_lazy('feed:list'),
-    ),
-    name='registration',
-    ),
-    # Профиль пользователя
+    # Приложение пользователя
     path('users/', include('users.urls'), name='users'),
+    
+    path('test/', include('tailwind_css.urls'), name='test'),
+    # Обновление страниц
+    path("__reload__/", include("django_browser_reload.urls")),
     # Приложение админки
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 

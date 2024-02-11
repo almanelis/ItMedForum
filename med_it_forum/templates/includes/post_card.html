@@ -10,7 +10,9 @@
       </div>
       <div class="col-8">
         <div class="card-header">
-          <p class="card-text">Опубликовано: {{ post.author }}, ID: {{ post.id }}</p>
+          <p class="card-text">Опубликовано: 
+            <a href="{% url "users:detail" post.author.id %}">{{ post.author }}</a>
+            , ID: {{ post.id }}</p>
           {% if post.author == user %}
             {% include "includes/post_func.html" %}
           {% endif %}
