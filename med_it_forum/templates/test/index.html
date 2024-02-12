@@ -7,13 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   {% tailwind_css %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
-<body class="bg-slate-50 container mx-auto py-3">
+<body class="bg-slate-50 container mx-auto py-3 font-poppins">
 
-<header class="h-16" style="position: sticky; top: 0; transition: 1s; backdrop-filter: blur(20px);">
+<header class="h-16" style="position: sticky; top: 0; backdrop-filter: blur(20px);">
   <div class="container flex items-center justify-between mx-auto py-3">
-
-    <span class="text-xl font-bold text-black">ItMedForum</span>
+  
+    <span class="text-xl font-semibold text-black">ItMedForum</span>
 
     <div class="flex gap-4">
       <div class="flex items-center bg-white rounded-lg px-3
@@ -43,9 +46,9 @@
 </header>
 <main class="mt-4">
   <div class="container mx-auto">
-    <div class="flex flex-row gap-[30px]">
+    <div class="flex flex-row gap-28">
       
-      <div class="basic-1/5 flex flex-col gap-1">
+      <div class="side-nav basic-1/5 flex flex-col gap-1"">
         <div class="flex items-center py-2 pr-3  rounded-lg gap-2 hover:bg-sky-200">
           <img src="{% static "img/fire.svg" %}" alt="">
           <a href="" class="text-lg font-semibold">Горячее</a>
@@ -73,13 +76,13 @@
             <div class="flex items-center gap-3">
               <p class="bg-sky-300 w-10 h-10 rounded-full flex items-center justify-center
               font-medium text-xl">С</p>
-              <p class="font-medium text-lg">Сашка Заебался</p>
+              <p class="text-lg">Сашка Заебался</p>
               <p class="font-light">0 минут назад</p>
             </div>
 
             <div>
-              <p class="font-bold text-xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-              <p class="font-semibold text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nisi inventore voluptatibus ullam hic repellat architecto molestias asperiores molestiae neque. Aut impedit a aliquam, accusantium inventore itaque consectetur odio porro!</p>
+              <p class="font-semibold text-xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+              <p class="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nisi inventore voluptatibus ullam hic repellat architecto molestias asperiores molestiae neque. Aut impedit a aliquam, accusantium inventore itaque consectetur odio porro!</p>
             </div>
             
             <div class="bg-slate-300 rounded-lg h-48"></div>
@@ -109,18 +112,18 @@
             </div>
           </div>
           <!-- конец карточки поста -->
-          <div class="bg-slate-100 w-100 p-6 rounded-lg flex flex-col gap-2">
+          <div class="bg-slate-100 p-6 rounded-lg flex flex-col gap-2">
             
             <div class="flex items-center gap-3">
               <p class="bg-sky-300 w-10 h-10 rounded-full flex items-center justify-center
               font-medium text-xl">С</p>
-              <p class="font-medium text-lg">Сашка Заебался</p>
+              <p class="text-lg">Сашка Заебался</p>
               <p class="font-light">0 минут назад</p>
             </div>
 
             <div>
-              <p class="font-bold text-xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-              <p class="font-semibold text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nisi inventore voluptatibus ullam hic repellat architecto molestias asperiores molestiae neque. Aut impedit a aliquam, accusantium inventore itaque consectetur odio porro!</p>
+              <p class="font-semibold text-xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+              <p class="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nisi inventore voluptatibus ullam hic repellat architecto molestias asperiores molestiae neque. Aut impedit a aliquam, accusantium inventore itaque consectetur odio porro!</p>
             </div>
             
             <div class="bg-slate-300 rounded-lg h-48"></div>
@@ -149,18 +152,18 @@
 
             </div>
           </div>
-          <div class="bg-slate-100 w-100 p-6 rounded-lg flex flex-col gap-2">
+          <div class="bg-slate-100 p-6 rounded-lg flex flex-col gap-2">
             
             <div class="flex items-center gap-3">
               <p class="bg-sky-300 w-10 h-10 rounded-full flex items-center justify-center
               font-medium text-xl">С</p>
-              <p class="font-medium text-lg">Сашка Заебался</p>
+              <p class="text-lg">Сашка Заебался</p>
               <p class="font-light">0 минут назад</p>
             </div>
 
             <div>
-              <p class="font-bold text-xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-              <p class="font-semibold text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nisi inventore voluptatibus ullam hic repellat architecto molestias asperiores molestiae neque. Aut impedit a aliquam, accusantium inventore itaque consectetur odio porro!</p>
+              <p class="font-semibold text-xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+              <p class="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nisi inventore voluptatibus ullam hic repellat architecto molestias asperiores molestiae neque. Aut impedit a aliquam, accusantium inventore itaque consectetur odio porro!</p>
             </div>
             
             <div class="bg-slate-300 rounded-lg h-48"></div>
@@ -189,18 +192,18 @@
 
             </div>
           </div>
-          <div class="bg-slate-100 w-100 p-6 rounded-lg flex flex-col gap-2">
+          <div class="bg-slate-100 p-6 rounded-lg flex flex-col gap-2">
             
             <div class="flex items-center gap-3">
               <p class="bg-sky-300 w-10 h-10 rounded-full flex items-center justify-center
               font-medium text-xl">С</p>
-              <p class="font-medium text-lg">Сашка Заебался</p>
+              <p class="text-lg">Сашка Заебался</p>
               <p class="font-light">0 минут назад</p>
             </div>
 
             <div>
-              <p class="font-bold text-xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-              <p class="font-semibold text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nisi inventore voluptatibus ullam hic repellat architecto molestias asperiores molestiae neque. Aut impedit a aliquam, accusantium inventore itaque consectetur odio porro!</p>
+              <p class="font-semibold text-xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+              <p class="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nisi inventore voluptatibus ullam hic repellat architecto molestias asperiores molestiae neque. Aut impedit a aliquam, accusantium inventore itaque consectetur odio porro!</p>
             </div>
             
             <div class="bg-slate-300 rounded-lg h-48"></div>
@@ -241,7 +244,7 @@
             <span class="font-semibold">Популярные теги <span class="font-bold">></span></span>
             <div class="flex flex-col gap-2">
               <!-- тег -->
-              <div class="flex gap-1 items-center hover:bg-sky-100 hover:p-1 hover:rounded-lg">
+              <div class="flex gap-1 items-center hover:bg-sky-100 p-1 hover:rounded-lg">
                 <button class="bg-sky-200 size-16 flex items-center justify-center rounded-lg">
                   <img src="{% static "img/design_services.svg" %}" class="size-7" alt="">
                 </button>
@@ -252,7 +255,7 @@
                 </div>
               </div>
               <!-- конец тега -->
-              <div class="flex gap-1 items-center hover:bg-sky-100 hover:p-1 hover:rounded-lg">
+              <div class="flex gap-1 items-center hover:bg-sky-100 p-1 hover:rounded-lg">
                 <button class="bg-purple-200 size-16 flex items-center justify-center rounded-lg">
                   <img src="{% static "img/flightsmode.svg" %}" class="size-7" alt="">
                 </button>
@@ -262,7 +265,7 @@
                   <p class="text-sm">98 постов по этому тэгу</p>
                 </div>
               </div>
-              <div class="flex gap-1 items-center hover:bg-sky-100 hover:p-1 hover:rounded-lg">
+              <div class="flex gap-1 items-center hover:bg-sky-100 p-1 hover:rounded-lg">
                 <button class="bg-yellow-100 size-16 flex items-center justify-center rounded-lg">
                   <img src="{% static "img/lunch_dining.svg" %}" class="size-7" alt="">
                 </button>
@@ -272,7 +275,7 @@
                   <p class="text-sm">98 постов по этому тэгу</p>
                 </div>
               </div>
-              <div class="flex gap-1 items-center hover:bg-sky-100 hover:p-1 hover:rounded-lg">
+              <div class="flex gap-1 items-center hover:bg-sky-100 p-1 hover:rounded-lg">
                 <button class="bg-green-200 size-16 flex items-center justify-center rounded-lg">
                   <img src="{% static "img/code.svg" %}" class="size-7" alt="">
                 </button>
@@ -294,38 +297,6 @@
   </div>
 </main>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => { // DOM готов к взаимодейтсвию
-
-const onScrollHeader = () => { // объявляем основную функцию onScrollHeader
-
-  const header = document.querySelector('.header') // находим header и записываем в константу
-
-  let prevScroll = window.pageYOffset // узнаем на сколько была прокручена страница ранее
-  let currentScroll // на сколько прокручена страница сейчас (пока нет значения)
-
-  window.addEventListener('scroll', () => { // при прокрутке страницы
-
-    currentScroll = window.pageYOffset // узнаем на сколько прокрутили страницу
-
-    const headerHidden = () => header.classList.contains('header_hidden') // узнаем скрыт header или нет
-
-    if (currentScroll > prevScroll && !headerHidden()) { // если прокручиваем страницу вниз и header не скрыт
-      header.classList.add('header_hidden') // то скрываем header
-    }
-    if (currentScroll < prevScroll && headerHidden()) { // если прокручиваем страницу вверх и header скрыт
-      header.classList.remove('header_hidden') // то отображаем header
-    }
-
-    prevScroll = currentScroll // записываем на сколько прокручена страница на данный момент
-
-  })
-
-}
-
-onScrollHeader() // вызываем основную функцию onScrollHeader
-
-});
-</script>
+<script src="{% static "js/app.js" %}"></script>
 </body>
 </html>
