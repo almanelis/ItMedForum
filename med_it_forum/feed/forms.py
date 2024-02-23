@@ -1,4 +1,5 @@
 from django import forms
+from froala_editor.widgets import FroalaEditor
 
 from users.models import Skill
 from .models import Post
@@ -11,6 +12,7 @@ class PostForm(forms.ModelForm):
         widget=forms.CheckboxSelectMultiple,
         label='Теги',
         )
+    content = forms.CharField(widget=FroalaEditor)
 
     class Meta:
         model = Post

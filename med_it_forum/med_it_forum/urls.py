@@ -10,8 +10,10 @@ urlpatterns = [
     path('auth/', include('django.contrib.auth.urls')),
     # Приложение пользователя
     path('users/', include('users.urls'), name='users'),
-    
+    # Тестовая вёрстка
     path('test/', include('tailwind_css.urls'), name='test'),
+    # Редактор статей
+    path('froala_editor/', include('froala_editor.urls')),
     # Обновление страниц
     path("__reload__/", include("django_browser_reload.urls")),
     # Приложение админки

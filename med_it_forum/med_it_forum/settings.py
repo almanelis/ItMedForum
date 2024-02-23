@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     # css фреймворки
     'tailwind',
     'tailwind_css',
-    'django_bootstrap5',
+    'django_bootstrap5',    
     # дебагер 
     "debug_toolbar",
     # автоматическое обновление страницы при изменении в шаблоне
@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     # приложения
     'users.apps.UsersConfig',
     'feed.apps.FeedConfig',
+    # редактор статей
+    'froala_editor',
 ]
 
 MIDDLEWARE = [
@@ -151,3 +153,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+# froala settiтgs
+FROALA_EDITOR_THEME='gray'
+FROALA_EDITOR_OPTIONS={
+    # 'toolbarInline': True,
+    'language': 'ru'
+}
+FROALA_EDITOR_PLUGINS = ('align', 'char_counter', 'code_beautifier' , 'colors', 'draggable', 'emoticons',
+        'entities', 'file', 'font_family', 'font_size', 'image_manager', 'image', 'inline_style',
+        'line_breaker', 'link', 'lists', 'paragraph_format', 'paragraph_style', 'quick_insert', 'quote', 'save', 'table',
+        'url')
+FRAOLA_EDITOR_THIRD_PARTY = ('image_aviary', 'spell_checker')
