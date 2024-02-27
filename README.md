@@ -1,64 +1,100 @@
-MedItForum
-===
+# MedItForum
+
 ## Как установить
+
 1. Клонируем репозиторий
-  ```
-  git clone git@github.com:almanelis/ItMedForum.git
-  ```
+
+```
+git clone git@github.com:almanelis/ItMedForum.git
+```
+
 2. Создаём и активируем виртуальное окружение
-  ```
-  python -m venv venv
-  ```
-  ```
-  source venv/Scripts/activate
-  ```
+
+```
+python -m venv venv
+```
+
+```
+source venv/Scripts/activate
+```
+
 3. Устанавливаем зависимости
-  ```
-  pip install -r requirements.txt
-  ```
+
+```
+pip install -r requirements.txt
+```
+
 ## Как запустить Django приложение
-  ```
-  python med_it_forum/manage.py runserver
-  ```
-  Далее переходим по url из терминала
+
+```
+python med_it_forum/manage.py runserver
+```
+
+Далее переходим по url из терминала
+
+## Как запустить Tailwind css
+
+```
+python med_it_forum/manage.py tailwind start
+```
+
 ### Создаём миграции и суперюзера
-  ```
-  python med_it_forum/manage.py makemigrations
-  python med_it_forum/manage.py migrate
-  ```
-  ```
-  python med_it_forum/manage.py createsuperuser
-  ```
+
+```
+python med_it_forum/manage.py migrate
+```
+
+```
+python med_it_forum/manage.py createsuperuser
+```
+
 ### Работа с админкой
-  Так как база данных пустая, то в админке вы легко можете добавить необходимую инфу
-  Для этого нужно перейти по url и ввести логин и пароль своего суперюзера
-  ```
-  http://127.0.0.1:8000/admin/
-  ```
+
+Так как база данных пустая, то в админке вы легко можете добавить необходимую инфу
+Для этого нужно перейти по url и ввести логин и пароль своего суперюзера
+
+```
+http://127.0.0.1:8000/admin/
+```
+
 ## Про работу с гитом
+
 ### Как обновить файлы до последнего коммита на локальном компьтере
-  ```
-  git pull
-  ```
+
+```
+git pull
+```
+
 ### Как добавлять файлы в репозиторий на GitHub
-Когда написали какую-то часть и хотите ей поделиться, то выполняем следующие команды 
+
+Когда написали какую-то часть и хотите ей поделиться, то выполняем следующие команды
+
 1. Проверяем какие файлы изменились/добавились:
-  ```
-  git status
-  ```
+
+```
+git status
+```
+
 2. Создаём локальный коммит:
-  ```
-  git commit -m "<комментарий>"
-  ```
-3. Ещё раз проверьте и запуште 
-  ```
-  git status
-  ```
-  ```
-  git push
-  ```
-  Далее проверяем на гитхабе всё ли нормально
+
+```
+git commit -m "<комментарий>"
+```
+
+3. Ещё раз проверьте и запуште
+
+```
+git status
+```
+
+```
+git push
+```
+
+Далее проверяем на гитхабе всё ли нормально
+
 ## Директории
+
 ```
 |—— .gitignore
 |—— med_it_forum
@@ -77,11 +113,11 @@ MedItForum
 |        |—— feed
 |            |—— index.html                   <--- главная страница
 |        |—— includes
-|            |—— footer.html                  
+|            |—— footer.html
 |            |—— header.html                  <--- хэдер c навбаром
-|            |—— post_card.html             
+|            |—— post_card.html
 |        |—— profile
-|            |—— user_profile.html            <--- страница профиля 
+|            |—— user_profile.html            <--- страница профиля
 |        |—— registration
 |            |—— logged_out.html              <--- шаблон с уведомлением о разлогине
 |            |—— login.html                   <--- шаблон с формой для аутентификации
