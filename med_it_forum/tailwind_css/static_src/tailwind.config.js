@@ -24,8 +24,11 @@ module.exports = withMT({
     theme: {
         extend: {
             fontFamily: {
-                'poppins': ['Poppins', "sans-serif"],
+                'raleway': ['Raleway', "sans-serif"],
             },
+        },
+        colors: {
+            'denim-blue': '#4b709a',
         },
     },
     plugins: [

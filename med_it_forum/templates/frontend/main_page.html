@@ -9,377 +9,65 @@
   {% tailwind_css %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static "css/main.css" %}">
 </head>
-<body class="bg-slate-50 container mx-auto py-3 font-poppins">
-
-<header class="h-16" style="position: sticky; top: 0; backdrop-filter: blur(20px);">
-  <div class="container flex items-center justify-between mx-auto py-3">
-  
-    <span class="text-xl font-semibold text-black">ItMedForum</span>
-
-    <div class="flex gap-4">
-      <div class="flex items-center bg-white rounded-lg px-3
-      border-solid border border-gray-900 placeholder:text-slate-600">
-        <input type="text" class="border-0 w-80" placeholder="Поиск" id="search">
-        <label class="" for="search">
-          <img src="{% static "img/search.svg" %}" class="" alt="">
-        </label>
+<body>
+  <header class="container mx-auto flex items-center justify-center sm:justify-between font-raleway">
+    <!-- бренд -->
+    <div class="flex items-center">
+      <img src="{% static "img/logo_new.png" %}" alt="">
+      <p class="font-semibold hidden md:block">
+        <span class="text-3xl text-red-900">Med</span><span class="text-3xl text-blue-gray-900">It</span><span class="text-4xl text-blue-gray-900">Forum</span>
+      </p>
+    </div>
+    <!-- поиск и кнопка -->
+    <div class="flex gap-2 md:gap-8">
+      <!-- поиск -->
+      <div class="flex items-center">
+        <div class="flex items-center gap-2 bg-blue-gray-50 rounded-lg sm:rounded-lg lg:rounded-l-lg pl-3 pr-2 py-2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="stroke-denim-blue">
+            <path d="M21 21L15 15M17 10C17 10.9193 16.8189 11.8295 16.4672 12.6788C16.1154 13.5281 15.5998 14.2997 14.9497 14.9497C14.2997 15.5998 13.5281 16.1154 12.6788 16.4672C11.8295 16.8189 10.9193 17 10 17C9.08075 17 8.1705 16.8189 7.32122 16.4672C6.47194 16.1154 5.70026 15.5998 5.05025 14.9497C4.40024 14.2997 3.88463 13.5281 3.53284 12.6788C3.18106 11.8295 3 10.9193 3 10C3 8.14348 3.7375 6.36301 5.05025 5.05025C6.36301 3.7375 8.14348 3 10 3C11.8565 3 13.637 3.7375 14.9497 5.05025C16.2625 6.36301 17 8.14348 17 10Z" stroke="#4B709A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="md:hidden text-denim-blue">Поиск</p>
+        </div>
+        <input type="search" placeholder="Поиск" class="border-none bg-blue-gray-50 rounded-r-lg placeholder:text-denim-blue w-64 xl:w-96 hidden lg:block">
       </div>
-
-      <button class="border px-3 py-2 rounded-lg border-gray-900 hover:opacity-75" type="button">
-        Написать статью
+      <!-- кнопка -->
+      <button class="flex items-center gap-2 bg-denim-blue px-4 py-2 rounded-lg text-blue-gray-50 hover:opacity-80">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.232 5.23196L18.768 8.76796M16.732 3.73196C17.2009 3.26306 17.8369 2.99963 18.5 2.99963C19.1631 2.99963 19.7991 3.26306 20.268 3.73196C20.7369 4.20087 21.0003 4.83683 21.0003 5.49996C21.0003 6.16309 20.7369 6.79906 20.268 7.26796L6.5 21.036H3V17.464L16.732 3.73196Z" stroke="#ECEFF1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p class="hidden lg:block">
+          Написать статью
+        </p>
       </button>
-    </div>
-
-
+    </div> 
+    <!-- уведомления и профиль -->
     <div class="flex items-center gap-4">
-      <button><img src="{% static "img/bell.svg" %}" alt=""></button>
-      <button><img src="{% static "img/user.svg" %}" class="" alt=""></button>
-
-      <button
-      class="select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-      type="button" data-dialog-target="sign-in-dialog">
-      Sign In
-    </button>
-    
-
-    </div>
-  
-  </div>
-</header>
-<main class="mt-4">
-  <div data-dialog-backdrop="sign-in-dialog" data-dialog-backdrop-close="true"
-    class="pointer-events-none fixed inset-0 z-[999] grid h-screen w-screen place-items-center bg-black bg-opacity-60 opacity-0 backdrop-blur-sm transition-opacity duration-300">
-    <div data-dialog="sign-in-dialog"
-      class="relative mx-auto flex w-full max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-      <div class="flex flex-col gap-4 p-6">
-        <h4
-          class="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-          Sign In
-        </h4>
-        <p class="block mb-3 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
-          Enter your email and password to Sign In.
-        </p>
-        <h6
-          class="block -mb-2 font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-inherit">
-          Your Email
-        </h6>
-        <div class="relative h-11 w-full min-w-[200px]">
-          <input
-            class="w-full h-full px-3 py-3 font-sans text-sm font-normal transition-all bg-transparent border rounded-md peer border-blue-gray-200 border-t-transparent text-blue-gray-700 outline outline-0 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-            placeholder=" " />
-          <label
-            class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-            Email
-          </label>
-        </div>
-        <h6
-          class="block -mb-2 font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-inherit">
-          Your Password
-        </h6>
-        <div class="relative h-11 w-full min-w-[200px]">
-          <input
-            class="w-full h-full px-3 py-3 font-sans text-sm font-normal transition-all bg-transparent border rounded-md peer border-blue-gray-200 border-t-transparent text-blue-gray-700 outline outline-0 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-            placeholder=" " />
-          <label
-            class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-            Password
-          </label>
-        </div>
-        <div class="-ml-2.5 -mt-3">
-          <div class="inline-flex items-center">
-            <label class="relative flex items-center p-3 rounded-full cursor-pointer" htmlFor="remember">
-              <input type="checkbox"
-                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-900 checked:bg-gray-900 checked:before:bg-gray-900 hover:before:opacity-10"
-                id="remember" />
-              <span
-                class="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
-                  stroke="currentColor" stroke-width="1">
-                  <path fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd"></path>
-                </svg>
-              </span>
-            </label>
-            <label class="mt-px font-light text-gray-700 cursor-pointer select-none" htmlFor="remember">
-              Remember Me
-            </label>
+      <!-- колокольчик -->
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.75 21.25H25L23.2437 19.4938C23.0079 19.2578 22.8208 18.9778 22.6932 18.6696C22.5656 18.3614 22.4999 18.0311 22.5 17.6975V13.75C22.5002 12.1987 22.0195 10.6854 21.124 9.41861C20.2286 8.15179 18.9625 7.1937 17.5 6.67625V6.25C17.5 5.58696 17.2366 4.95107 16.7678 4.48223C16.2989 4.01339 15.663 3.75 15 3.75C14.337 3.75 13.7011 4.01339 13.2322 4.48223C12.7634 4.95107 12.5 5.58696 12.5 6.25V6.67625C9.5875 7.70625 7.5 10.485 7.5 13.75V17.6988C7.5 18.3713 7.2325 19.0175 6.75625 19.4938L5 21.25H11.25M18.75 21.25H11.25M18.75 21.25V22.5C18.75 23.4946 18.3549 24.4484 17.6517 25.1517C16.9484 25.8549 15.9946 26.25 15 26.25C14.0054 26.25 13.0516 25.8549 12.3483 25.1517C11.6451 24.4484 11.25 23.4946 11.25 22.5V21.25" stroke="#727272" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <!-- профиль -->
+      <div class="flex items-center gap-2">
+        <button>
+          <div class="bg-gradient-to-tr from-blue-gray-900 to-blue-gray-800 rounded-full size-10 flex items-center justify-center text-2xl font-semibold text-blue-gray-50">
+            А
           </div>
-        </div>
-      </div>
-      <div class="p-6 pt-0">
-        <button
-          class="block w-full select-none rounded-lg bg-gradient-to-tr from-gray-900 to-gray-800 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-          type="button">
-          Sign In
         </button>
-        <p class="flex justify-center mt-4 font-sans text-sm antialiased font-light leading-normal text-inherit">
-          Don&apos;t have an account?
-          <a href="#signup"
-            class="block ml-1 font-sans text-sm antialiased font-bold leading-normal text-blue-gray-900">
-            Sign up
-          </a>
-        </p>
+        <button>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 9L12 16L5 9" stroke="#212121" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
       </div>
     </div>
-  </div>  
-  <div class="container mx-auto">
-    <div class="flex flex-row gap-28">
-      
-      <div class="side-nav basic-1/5 flex flex-col gap-1"">
-        <div class="flex items-center py-2 pr-3  rounded-lg gap-2 hover:bg-sky-200">
-          <img src="{% static "img/fire.svg" %}" alt="">
-          <a href="" class="text-lg font-semibold">Горячее</a>
-        </div>
-        <div class="flex items-center py-2 pr-3  rounded-lg gap-2 hover:bg-sky-200">
-          <img src="{% static "img/rocket.svg" %}" alt="">
-          <a href="" class="text-lg font-semibold">Популярное</a>
-        </div>
-        <div class="flex items-center py-2 pr-3  rounded-lg gap-2 hover:bg-sky-200">
-          <img src="{% static "img/bookmark.svg" %}" alt="">
-          <a href="" class="text-lg font-semibold">Избранное</a>
-        </div>
-        <div class="flex items-center py-2 pr-3  rounded-lg gap-2 hover:bg-sky-200">
-          <img src="{% static "img/heart.svg" %}" alt="">
-          <a href="" class="text-lg font-semibold">Нравится</a>
-        </div>
-        <hr>
-      </div>
-
-      <div class="basic-3/5">
-        <div class="container mx-auto flex flex-col gap-4">
-
-          
-
-          <!-- карточка поста -->
-          <div class="bg-slate-100 p-6 rounded-lg flex flex-col gap-2">
-            
-            <div class="flex items-center gap-3">
-              <p class="bg-sky-300 w-10 h-10 rounded-full flex items-center justify-center
-              font-medium text-xl">С</p>
-              <p class="text-lg">Сашка Заебался</p>
-              <p class="font-light">0 минут назад</p>
-            </div>
-
-            <div>
-              <p class="font-semibold text-xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-              <p class="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nisi inventore voluptatibus ullam hic repellat architecto molestias asperiores molestiae neque. Aut impedit a aliquam, accusantium inventore itaque consectetur odio porro!</p>
-            </div>
-            
-            <div class="bg-slate-300 rounded-lg h-48"></div>
-
-            <div class="flex justify-between">
-
-              <div class="flex gap-2">
-              <button class="flex py-2 gap-1 px-3 bg-slate-200 rounded-lg hover:bg-slate-300">
-                <img src="{% static "img/thumbs-up.svg" %}" alt="">
-                <span>14</span>
-              </button>
-              <button class="flex py-2 gap-1 px-3 bg-slate-200 rounded-lg hover:bg-slate-300">
-                <img src="{% static "img/message-dots.svg" %}" alt="">
-                <span>14</span>
-              </button>
-              <button class="flex py-2 gap-1 px-3 bg-slate-200 rounded-lg hover:bg-slate-300">
-                <img src="{% static "img/bookmark.svg" %}" alt="">
-                <span>14</span>
-              </button>
-              </div>
-
-              <div class="flex items-center gap-2">
-                <img src="{% static "img/eye.svg" %}" alt="">
-                <span>328</span>
-              </div>
-
-            </div>
-          </div>
-          <!-- конец карточки поста -->
-          <div class="bg-slate-100 p-6 rounded-lg flex flex-col gap-2">
-            
-            <div class="flex items-center gap-3">
-              <p class="bg-sky-300 w-10 h-10 rounded-full flex items-center justify-center
-              font-medium text-xl">С</p>
-              <p class="text-lg">Сашка Заебался</p>
-              <p class="font-light">0 минут назад</p>
-            </div>
-
-            <div>
-              <p class="font-semibold text-xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-              <p class="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nisi inventore voluptatibus ullam hic repellat architecto molestias asperiores molestiae neque. Aut impedit a aliquam, accusantium inventore itaque consectetur odio porro!</p>
-            </div>
-            
-            <div class="bg-slate-300 rounded-lg h-48"></div>
-
-            <div class="flex justify-between">
-
-              <div class="flex gap-2">
-              <button class="flex py-2 gap-1 px-3 bg-slate-200 rounded-lg hover:bg-slate-300">
-                <img src="{% static "img/thumbs-up.svg" %}" alt="">
-                <span>14</span>
-              </button>
-              <button class="flex py-2 gap-1 px-3 bg-slate-200 rounded-lg hover:bg-slate-300">
-                <img src="{% static "img/message-dots.svg" %}" alt="">
-                <span>14</span>
-              </button>
-              <button class="flex py-2 gap-1 px-3 bg-slate-200 rounded-lg hover:bg-slate-300">
-                <img src="{% static "img/bookmark.svg" %}" alt="">
-                <span>14</span>
-              </button>
-              </div>
-
-              <div class="flex items-center gap-2">
-                <img src="{% static "img/eye.svg" %}" alt="">
-                <span>328</span>
-              </div>
-
-            </div>
-          </div>
-          <div class="bg-slate-100 p-6 rounded-lg flex flex-col gap-2">
-            
-            <div class="flex items-center gap-3">
-              <p class="bg-sky-300 w-10 h-10 rounded-full flex items-center justify-center
-              font-medium text-xl">С</p>
-              <p class="text-lg">Сашка Заебался</p>
-              <p class="font-light">0 минут назад</p>
-            </div>
-
-            <div>
-              <p class="font-semibold text-xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-              <p class="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nisi inventore voluptatibus ullam hic repellat architecto molestias asperiores molestiae neque. Aut impedit a aliquam, accusantium inventore itaque consectetur odio porro!</p>
-            </div>
-            
-            <div class="bg-slate-300 rounded-lg h-48"></div>
-
-            <div class="flex justify-between">
-
-              <div class="flex gap-2">
-              <button class="flex py-2 gap-1 px-3 bg-slate-200 rounded-lg hover:bg-slate-300">
-                <img src="{% static "img/thumbs-up.svg" %}" alt="">
-                <span>14</span>
-              </button>
-              <button class="flex py-2 gap-1 px-3 bg-slate-200 rounded-lg hover:bg-slate-300">
-                <img src="{% static "img/message-dots.svg" %}" alt="">
-                <span>14</span>
-              </button>
-              <button class="flex py-2 gap-1 px-3 bg-slate-200 rounded-lg hover:bg-slate-300">
-                <img src="{% static "img/bookmark.svg" %}" alt="">
-                <span>14</span>
-              </button>
-              </div>
-
-              <div class="flex items-center gap-2">
-                <img src="{% static "img/eye.svg" %}" alt="">
-                <span>328</span>
-              </div>
-
-            </div>
-          </div>
-          <div class="bg-slate-100 p-6 rounded-lg flex flex-col gap-2">
-            
-            <div class="flex items-center gap-3">
-              <p class="bg-sky-300 w-10 h-10 rounded-full flex items-center justify-center
-              font-medium text-xl">С</p>
-              <p class="text-lg">Сашка Заебался</p>
-              <p class="font-light">0 минут назад</p>
-            </div>
-
-            <div>
-              <p class="font-semibold text-xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-              <p class="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nisi inventore voluptatibus ullam hic repellat architecto molestias asperiores molestiae neque. Aut impedit a aliquam, accusantium inventore itaque consectetur odio porro!</p>
-            </div>
-            
-            <div class="bg-slate-300 rounded-lg h-48"></div>
-
-            <div class="flex justify-between">
-
-              <div class="flex gap-2">
-              <button class="flex py-2 gap-1 px-3 bg-slate-200 rounded-lg hover:bg-slate-300">
-                <img src="{% static "img/thumbs-up.svg" %}" alt="">
-                <span>14</span>
-              </button>
-              <button class="flex py-2 gap-1 px-3 bg-slate-200 rounded-lg hover:bg-slate-300">
-                <img src="{% static "img/message-dots.svg" %}" alt="">
-                <span>14</span>
-              </button>
-              <button class="flex py-2 gap-1 px-3 bg-slate-200 rounded-lg hover:bg-slate-300">
-                <img src="{% static "img/bookmark.svg" %}" alt="">
-                <span>14</span>
-              </button>
-              </div>
-
-              <div class="flex items-center gap-2">
-                <img src="{% static "img/eye.svg" %}" alt="">
-                <span>328</span>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="basic-1/5 w-96">
-        <div class="container mx-auto">
-          
-          <!-- навигация по тегам -->
-          <div class="bg-slate-100 p-4 rounded-lg flex flex-col gap-2">
-            <span class="font-semibold">Популярные теги <span class="font-bold">></span></span>
-            <div class="flex flex-col gap-2">
-              <!-- тег -->
-              <div class="flex gap-1 items-center hover:bg-sky-100 p-1 hover:rounded-lg">
-                <button class="bg-sky-200 size-16 flex items-center justify-center rounded-lg">
-                  <img src="{% static "img/design_services.svg" %}" class="size-7" alt="">
-                </button>
-
-                <div>
-                  <p class="font-semibold">#дизайн</p>
-                  <p class="text-sm">98 постов по этому тэгу</p>
-                </div>
-              </div>
-              <!-- конец тега -->
-              <div class="flex gap-1 items-center hover:bg-sky-100 p-1 hover:rounded-lg">
-                <button class="bg-purple-200 size-16 flex items-center justify-center rounded-lg">
-                  <img src="{% static "img/flightsmode.svg" %}" class="size-7" alt="">
-                </button>
-
-                <div>
-                  <p class="font-semibold">#python</p>
-                  <p class="text-sm">98 постов по этому тэгу</p>
-                </div>
-              </div>
-              <div class="flex gap-1 items-center hover:bg-sky-100 p-1 hover:rounded-lg">
-                <button class="bg-yellow-100 size-16 flex items-center justify-center rounded-lg">
-                  <img src="{% static "img/lunch_dining.svg" %}" class="size-7" alt="">
-                </button>
-
-                <div>
-                  <p class="font-semibold">#JS</p>
-                  <p class="text-sm">98 постов по этому тэгу</p>
-                </div>
-              </div>
-              <div class="flex gap-1 items-center hover:bg-sky-100 p-1 hover:rounded-lg">
-                <button class="bg-green-200 size-16 flex items-center justify-center rounded-lg">
-                  <img src="{% static "img/code.svg" %}" class="size-7" alt="">
-                </button>
-
-                <div>
-                  <p class="font-semibold">#дизайн</p>
-                  <p class="text-sm">98 постов по этому тэгу</p>
-                </div>
-              </div>
-            </div>
-
-            
-          </div>
-          <!-- конец навигации по тегам -->
-
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
+  </header>
+  <!-- конец хэдера -->
+  <!-- начало основного блока -->
+  <main style="background-image: url('{% static "img/background.png" %}');" class="h-96">
+  </main>
 </body>
 {% include "includes/scripts.html" %}
 </html>
