@@ -20,15 +20,18 @@
         <div class="card-body">
           <h5 class="card-title" href="{% url 'feed:detail' post.id %}">
             <a  href="{% url 'feed:detail' post.id %}">{{ post.title }}</a>
-        </h5>
+          </h5>
           {% for tag in post.tags.all %}
             <button type="button" class="btn btn-sm btn-outline-primary" disabled>{{ tag.name }}</button>
           {% endfor %}
-          <p class="card-text">{{ post.content|truncatewords:"20"|safe }}</p>
-      </div>
+          <div>
+          {{ post.content|truncatewords:"20"|safe }}
+          </div>
+        </div>
       <div class="card-footer">
         <p class="card-text"><small class="text-body-secondary">Последнее изменение {{ post.updated_at }}</small></p>
       </div>
     </div>
     </div>
   </div>
+</div>

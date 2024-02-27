@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     # приложения
     'users.apps.UsersConfig',
     'feed.apps.FeedConfig',
+    'frontend.apps.FrontendConfig',
     # редактор статей
     'froala_editor',
 ]

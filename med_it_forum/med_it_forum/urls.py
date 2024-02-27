@@ -11,7 +11,7 @@ urlpatterns = [
     # Приложение пользователя
     path('users/', include('users.urls'), name='users'),
     # Тестовая вёрстка
-    path('test/', include('tailwind_css.urls'), name='test'),
+    path('frontend/', include('frontend.urls'), name='frontend'),
     # Редактор статей
     path('froala_editor/', include('froala_editor.urls')),
     # Обновление страниц
