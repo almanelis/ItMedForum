@@ -20,6 +20,7 @@ module.exports = withMT({
          * Adjust the following line to match your project structure.
          */
         '../../**/templates/**/*.html',
+        './node_modules/flowbite/**/*.js',
     ],
     theme: {
         extend: {
@@ -35,5 +36,6 @@ module.exports = withMT({
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('@tailwindcss/aspect-ratio'),
+        require('flowbite/plugin'),
     ],
 });
