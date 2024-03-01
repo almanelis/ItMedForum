@@ -16,9 +16,18 @@
   <!-- header -->
   {% include "frontend_includes/header.html" %}
   <!-- начало основного блока -->
-  <main style="background-image: url('{% static "img/background.png" %}');" class="h-96">
-    <div class="container mx-auto">
-
+  <main style="background-image: url('{% static "img/background.png" %}');" class="mt-4">
+    <div class="container mx-auto flex flex-row gap-8">
+      <!-- навигация -->
+      {% include "frontend_includes/sidebar.html" %}
+      <!-- блок с постами -->
+      <div class="basic-3/5 bg-blue-gray-50">
+        блок с постами
+      </div>
+      <!-- блок с тегами -->
+      <div class="basic-1/5 bg-red-900">
+        блок с тегами
+      </div>
     </div>
   </main>
   <!-- конец основного блока -->

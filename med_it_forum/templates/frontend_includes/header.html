@@ -12,7 +12,7 @@
         <div class="flex gap-2 md:gap-8">
           <!-- поиск -->
           <div class="flex items-center">
-            <div class="flex items-center gap-2 bg-blue-gray-50 rounded-lg sm:rounded-lg lg:rounded-l-lg pl-3 pr-2 py-2">
+            <div class="flex items-center gap-2 bg-blue-gray-50 rounded-lg lg:rounded-r-none pl-3 pr-2 py-2">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="stroke-denim-blue">
                 <path d="M21 21L15 15M17 10C17 10.9193 16.8189 11.8295 16.4672 12.6788C16.1154 13.5281 15.5998 14.2997 14.9497 14.9497C14.2997 15.5998 13.5281 16.1154 12.6788 16.4672C11.8295 16.8189 10.9193 17 10 17C9.08075 17 8.1705 16.8189 7.32122 16.4672C6.47194 16.1154 5.70026 15.5998 5.05025 14.9497C4.40024 14.2997 3.88463 13.5281 3.53284 12.6788C3.18106 11.8295 3 10.9193 3 10C3 8.14348 3.7375 6.36301 5.05025 5.05025C6.36301 3.7375 8.14348 3 10 3C11.8565 3 13.637 3.7375 14.9497 5.05025C16.2625 6.36301 17 8.14348 17 10Z" stroke="#4B709A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -38,18 +38,18 @@
           </svg>
           <!-- профиль -->
           <div class="flex items-center gap-2">
-            <button>
-              <div class="bg-gradient-to-tr from-blue-gray-900 to-blue-gray-800 rounded-full size-10 flex items-center justify-center text-2xl font-semibold text-blue-gray-50">
+            <button data-collapse-target="collapse" data-dropdown-toggle="dropdown" class="flex items-center gap-2 text-sm font-semibold text-blue-gray-900 rounded-full hover:text-denim-blue focus:ring-4 focus:ring-blue-gray-50" type="button">
+              <div class="bg-gradient-to-tr from-blue-gray-900 to-blue-gray-800 rounded-full size-9 flex items-center justify-center text-xl font-semibold text-blue-gray-50">
                 А
               </div>
-            </button>
-            <button data-ripple-light="true" data-collapse-target="collapse" data-dropdown-toggle="dropdown">
+              <span class="hidden md:block">Александр</span>
+              
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19 9L12 16L5 9" stroke="#212121" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
               <!-- Dropdown menu -->
-            <div id="dropdown" class="z-10 hidden rounded-lg shadow w-44">
+            <div id="dropdown" class="z-10 hidden rounded-lg shadow w-44 bg-white">
               <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
                 <li class="hover:bg-blue-gray-50">
                   <a href="#" class="block px-4 py-2 text-denim-blue">Профиль</a>
