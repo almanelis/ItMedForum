@@ -13,7 +13,24 @@
     <link rel="stylesheet" href="{% static "css/main.css" %}">
 </head>
 <body>
-    <h1>Профиль пользователя</h1>
+  <!-- header -->
+  {% include "frontend_includes/header.html" %}
+  <!-- начало основного блока -->
+  <main style="background-image: url('{% static "img/background.png" %}');" class="mt-4">
+    <div class="container mx-auto flex flex-row gap-8">
+      <!-- навигация -->
+      {% include "frontend_includes/sidebar.html" %}
+      <!-- карточка профиля -->
+      <div class="basic-3/5 bg-blue-gray-50">
+        карточка профиля
+      </div>
+      <!-- навигация по профилю -->
+      <div class="basic-1/5 bg-red-900">
+        навигация по профилю
+      </div>
+    </div>
+  </main>
+  <!-- конец основного блока -->
 </body>
 {% include "includes/scripts.html" %}
 </html>

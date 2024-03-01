@@ -26,6 +26,7 @@
     "tailwindcss": "^3.4.0"
   },
   "dependencies": {
-    "@material-tailwind/html": "^2.2.2"
+    "@material-tailwind/html": "^2.2.2",
+    "flowbite": "^2.3.0"
   }
 }

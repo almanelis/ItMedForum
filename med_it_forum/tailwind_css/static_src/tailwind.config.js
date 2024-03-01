@@ -20,17 +20,22 @@ module.exports = withMT({
          * Adjust the following line to match your project structure.
          */
         '../../**/templates/**/*.html',
+        './node_modules/flowbite/**/*.js',
     ],
     theme: {
         extend: {
             fontFamily: {
-                'poppins': ['Poppins', "sans-serif"],
+                'raleway': ['Raleway', "sans-serif"],
             },
+        },
+        colors: {
+            'denim-blue': '#4b709a',
         },
     },
     plugins: [
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('@tailwindcss/aspect-ratio'),
+        require('flowbite/plugin'),
     ],
 });
