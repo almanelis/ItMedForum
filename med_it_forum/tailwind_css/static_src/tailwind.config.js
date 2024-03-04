@@ -26,6 +26,7 @@ module.exports = withMT({
         extend: {
             fontFamily: {
                 'raleway': ['Raleway', "sans-serif"],
+                'inter': ['Inter', "sans-serif"],
             },
         },
         colors: {
